@@ -1,3 +1,26 @@
+function openFullscreen() {
+  const mainImage = document.getElementById('mainImage')
+  const fullscreenModal = document.getElementById('fullscreenModal')
+  const fullscreenImage = document.getElementById('fullscreenImage')
+
+  fullscreenImage.src = mainImage.src
+  fullscreenModal.classList.add('show')
+  document.body.style.overflow = 'hidden'
+}
+
+function closeFullscreen() {
+  const fullscreenModal = document.getElementById('fullscreenModal')
+  fullscreenModal.classList.remove('show')
+  document.body.style.overflow = 'auto'
+}
+
+// Close fullscreen on Escape key
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closeFullscreen()
+  }
+})
+
 function changeMainImage(imageSrc, thumbnailElement) {
   document.getElementById('mainImage').src = imageSrc
   document
